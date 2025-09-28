@@ -2,16 +2,22 @@ header {
     padding: 2rem $gutter;
     h1 {font-size: 2rem;}
 }
-nav {
-  ul {
-    display: flex;
-    justify-content: flex-start;
-    column-gap: $gutter;
+#theButton {
+  display: none;
+}
+#theNav {
+  grid-template-rows: 1fr;
+}
+#theNav ul, #theNav ul.open {
+  display: flex;
+  li a {
+    padding: .4rem 1rem;
+    border: none;
   }
-  ul li a {
-    margin: 10px 0;
+  a:hover {
+    text-decoration: underline;
   }
-  ul li a:hover {
-    text-decoration: underline 2px $primaryColor;
-  } // end hover
-} // end nav
+}
+#navWrapper {
+  border-bottom: 1px solid grey;
+}

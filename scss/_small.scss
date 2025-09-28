@@ -30,37 +30,168 @@ header {
         font-weight: $boldWeight;
         color: grey;
     }
+    h3 {
+      margin-left: 10%;
+      color: grey;
+      a {
+        text-decoration: none;
+      }
+    }
 } // end header
-h1 {
-  margin-left: 20px;
+// h1 {
+//   margin-left: 20px;
+// }
+
+
+#theButton::before {
+  content: "\2630";
+}
+#theButton {
+  border:none;
+  background: none;
+  font-size: 2rem;
+  padding: 0;
+  width: 44px;
+  height: 44px;
+  position: absolute;
+  top: 0;
+  right:0;
+  cursor: pointer;
+}
+#theNav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+li a {
+  color: black;
+  display: block;
+  padding: .75rem $gutter;
+  text-decoration: none;
+  border-bottom: 1px solid grey;
+}
+li.active a {
+  color: whitesmoke;
+}
+}// end of unordered
+
+#theButton.open::before {
+  content: "\2715";
 }
 
-#navWrapper {
+#theNav {
   background-color: grey;
-}
-nav {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.5s ease-out;
   ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    li {
-      flex: 1;
+    overflow: hidden;
+  }
+}
+#theNav.open {
+  grid-template-rows: 1fr;
+}
+
+.parentHero {
+    border: grey solid 1px;
+    position: relative;
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
     }
-  }
-  li.active {
-    background-color: lightgray;
-  }
-  a {
-    display: block;
-    padding: 0.75rem;
-    color: black;
+  p {
+    margin: 0;
+    background: linear-gradient(90deg,rgba(230, 225, 225, 0.13) 0%, rgba(244, 244, 244, 0.3) 46%, rgba(232, 232, 232, 0.31) 100%);
+    padding: 1rem;
+    position: absolute;
+    top: calc(50% - 35px);
     text-align: center;
-    text-decoration: wavy;
-    &:hover {
-      color: rgba(255,255,255,8 );
+    width: 80%;
+    left: 10%;
+    font-size: 2rem;
+    font-weight: bold;
+  }
+}
+
+h1 {
+  margin: 1;
+  padding: 1rem;
+}
+
+div.cards {
+  margin-bottom: 1rem;
+  padding: 0 8px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px,1fr));
+  gap: 24px 8px;
+
+  section {
+    border-radius: 1rem;
+    border: 2px solid black;
+    padding: 1rem;
+    text-align: center;
+  }
+  section img {
+    width: 50px;
+    position: relative;
+  }
+}
+.bounce:hover img {animation: myBounce 1s 1;}
+.bounce:hover img {animation: myBounce 1s 1;}
+.spin:hover img {animation: mySpin 1s 1;}
+.pulse:hover img {animation: myPulse 1s 1;}
+
+  //  bounce animation
+
+  @keyframes myBounce {
+    0% {bttom:0px; animation-timing-function: ease-out;}
+    25% {bttom:15px; animation-timing-function: ease-in;}
+    50% {bttom:0px; animation-timing-function: ease-out;}
+    75% {bttom:7px; animation-timing-function: ease-in;}
+    100% {bttom:0px; animation-timing-function: ease-out;}
+
+  } // end of bounce
+
+   @keyframes mySpin {
+    from {transform: rotate(0deg);}
+    to {transform: rotate(360deg);}
+ } // end of spin
+
+ @keyframes myPulse {
+    0% {transform: scale(1.0);}
+    25% {transform: scale(1.5);}
+    50% {transform: scale(.75);}
+    75% {transform: scale(1.25);}
+    100% {transform: scale(1.0);}
+ } // end of pulse
+
+
+
+button {
+  border-radius: 1rem;
+  padding: .5rem;
+  background-color: grey;
+  color: white;
+}
+div.reviewWrapper {
+  background-color: #f7f7f7;
+  padding: 2rem 0;
+  text-align: center;
+  #cards {
+    text-align: center;
+    h3 {
+      margin: 2rem 16px 0 16px;
+      text-align: center;
+      color: #000;
+      font-weight: bold;
     }
   }
 }
+h2 {
+  color: grey;
+}
+
+
 // begin the footer
 #footerWrapper {
     background-color: rgb(122, 116, 116);
@@ -72,25 +203,5 @@ footer {
         font-weight: $lightWeight;
         text-align: center;
     }
-}
-video {
-  width: 90%;
-  margin-left: 5%;
-}
 
-details {
-  margin: 1rem $gutter;
-  summary {
-    
-    background-color: grey;
   }
-}
-img {
-  width: 100%;
-  height: auto;
-}
-#hero {
-  position: relative;
-  width: 100%;
-  height: auto;
-}
